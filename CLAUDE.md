@@ -35,3 +35,4 @@ plugins/<plugin-name>/
 - Use `$ARGUMENTS` in SKILL.md to accept user input
 - When adding a new plugin, register it in `.claude-plugin/marketplace.json` under the `plugins` array with `name`, `source` (`./plugins/<name>`), `description`, `version`, `category`, and `tags`
 - Marketplace version is in `metadata.version`; each plugin tracks its own version in `plugin.json`
+- When committing plugin changes, remember to bump both the plugin version (`plugin.json` → `version`) and the marketplace version (`marketplace.json` → `metadata.version`)
