@@ -1,6 +1,6 @@
-# SK Claude Plugin Marketplace
+# SKCPM: SandyKid's Claude Plugin Marketplace
 
-A curated collection of practical Claude Code plugins.
+A collection of claude code plugins used by SandyKid
 
 ## Installation
 
@@ -8,10 +8,10 @@ Add this marketplace to Claude Code:
 
 ```bash
 # From GitHub
-/plugin marketplace add SandyKidYao/sk-claude-plugin-marketplace
+/plugin marketplace add SandyKidYao/skcpm
 
 # Or from a local clone
-/plugin marketplace add ./path/to/sk-claude-plugin-marketplace
+/plugin marketplace add ./path/to/skcpm
 ```
 
 ## Available Plugins

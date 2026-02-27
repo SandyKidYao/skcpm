@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SK Claude Plugin Marketplace — a monorepo-style Claude Code plugin marketplace. All plugins live under `plugins/` and are referenced via relative paths in `.claude-plugin/marketplace.json`.
+SKCPM — a monorepo-style Claude Code plugin marketplace. All plugins live under `plugins/` and are referenced via relative paths in `.claude-plugin/marketplace.json`.
 
 ## Validation
 
