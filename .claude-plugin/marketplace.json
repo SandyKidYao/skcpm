@@ -1,0 +1,37 @@
+{
+  "name": "skcpm",
+  "owner": {
+    "name": "SandyKid"
+  },
+  "metadata": {
+    "description": "A collection of claude code plugins used by SandyKid",
+    "version": "0.1.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "code-review",
+      "source": "./plugins/code-review",
+      "description": "Code review skill that checks for bugs, security issues, and best practices",
+      "version": "1.0.0",
+      "category": "code-quality",
+      "tags": ["review", "quality", "security"]
+    },
+    {
+      "name": "git-commit",
+      "source": "./plugins/git-commit",
+      "description": "Smart git commit assistant: generates elegant commit messages, updates key docs, and manages version bumps",
+      "version": "1.0.0",
+      "category": "git",
+      "tags": ["git", "commit", "version", "changelog", "documentation"]
+    },
+    {
+      "name": "doc-generator",
+      "source": "./plugins/doc-generator",
+      "description": "Generate documentation comments for functions, classes, and modules",
+      "version": "1.0.0",
+      "category": "documentation",
+      "tags": ["docs", "comments", "documentation"]
+    }
+  ]
+}

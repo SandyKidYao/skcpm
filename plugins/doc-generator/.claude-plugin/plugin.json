@@ -1,0 +1,8 @@
+{
+  "name": "doc-generator",
+  "description": "Generate documentation comments for functions, classes, and modules",
+  "version": "1.0.0",
+  "author": {
+    "name": "SK Team"
+  }
+}
