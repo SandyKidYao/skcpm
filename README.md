@@ -18,9 +18,9 @@ Add this marketplace to Claude Code:
 
 | Plugin | Command | Description |
 |--------|---------|-------------|
-| **code-review** | `/code-review:review` | Review code for bugs, security issues, performance, and best practices |
 | **git-commit** | `/git-commit:commit` | Smart commit assistant: analyzes changes, generates style-matching commit messages, checks key docs, and optionally bumps version |
-| **doc-generator** | `/doc-generator:doc` | Generate documentation comments for functions, classes, and modules |
+| **code-explorer** | `/code-explorer:explore` | Breadth-first scan of a module or feature — files, entry points, dependencies, data flow, and test coverage |
+| **code-explorer** | `/code-explorer:trace` | Depth-first call-chain trace for a specific function, class, or symbol |
 
 ### Install a plugin
 
@@ -31,17 +31,14 @@ Add this marketplace to Claude Code:
 ### Use a plugin
 
 ```bash
-# Review code
-/code-review:review
-
-# Review with focus on security
-/code-review:review security
-
 # Smart commit with message generation, doc check, and optional version bump
 /git-commit:commit
 
-# Generate docs for selected code
-/doc-generator:doc
+# Explore a module or feature (breadth-first)
+/code-explorer:explore authentication
+
+# Trace a specific symbol (depth-first)
+/code-explorer:trace AuthService.validateToken
 ```
 
 ## Adding a New Plugin
@@ -102,13 +99,12 @@ claude plugin validate .
 ## Project Structure
 
 ```
-sk-claude-plugin-marketplace/
+skcpm/
 ├── .claude-plugin/
 │   └── marketplace.json      # Marketplace catalog
 ├── plugins/
-│   ├── code-review/          # Code review plugin
 │   ├── git-commit/           # Smart git commit assistant
-│   └── doc-generator/        # Documentation generator
+│   └── code-explorer/        # Codebase exploration and symbol tracing
 ├── .gitignore
 └── README.md
 ```

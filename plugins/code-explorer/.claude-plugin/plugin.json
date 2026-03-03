@@ -1,0 +1,8 @@
+{
+  "name": "code-explorer",
+  "description": "Systematically explore a module or feature across the codebase — finds all related files, maps entry points, traces dependencies and data flow, and produces a structured context summary ready for development, review, refactoring, or testing",
+  "version": "1.0.0",
+  "author": {
+    "name": "SK Team"
+  }
+}

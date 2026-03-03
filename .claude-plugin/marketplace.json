@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "A collection of claude code plugins used by SandyKid",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -16,6 +16,14 @@
       "version": "1.0.0",
       "category": "git",
       "tags": ["git", "commit", "version", "changelog", "documentation"]
+    },
+    {
+      "name": "code-explorer",
+      "source": "./plugins/code-explorer",
+      "description": "Systematically explore a module or feature across the codebase — finds all related files, maps entry points, traces dependencies and data flow, and produces a structured context summary ready for development, review, refactoring, or testing",
+      "version": "1.0.0",
+      "category": "analysis",
+      "tags": ["exploration", "code-reading", "context", "dependencies", "data-flow", "refactoring", "review"]
     }
   ]
 }
