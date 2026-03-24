@@ -19,9 +19,9 @@ If there are no changes at all (working tree clean), inform the user and stop.
 
 ## Step 2: Stage Changes
 
-If there are unstaged changes, ask the user which files to stage:
-- If the user says "all" or the intent is clear from $ARGUMENTS, stage all relevant files (prefer `git add <specific-files>` over `git add -A`)
-- Otherwise, list the changed files and let the user choose
+If there are unstaged changes, decide how to stage:
+- If the user's intent is clear from $ARGUMENTS or all changes are clearly related, stage the relevant files directly (prefer `git add <specific-files>` over `git add -A`)
+- If changes span multiple unrelated concerns and it's ambiguous what to include, present a numbered list of changed files and let the user pick by number or range (e.g., "1-3, 5")
 - Never stage files that likely contain secrets (`.env`, credentials, tokens, private keys)
 
 ## Step 3: Analyze Commit Style
@@ -45,7 +45,7 @@ Based on the staged changes:
 2. Draft a commit message in the detected (or default) style
 3. The subject line must be under 72 characters, imperative mood, lowercase (unless the user's style differs)
 4. Include a body only for non-trivial changes — explain *why*, not *what*
-5. Present the proposed message to the user and ask for confirmation or edits
+5. **Do NOT ask for confirmation** — proceed directly to the next step with the generated message. Only pause to ask if you are genuinely uncertain about the intent of the changes (e.g., changes span multiple unrelated areas and the purpose is ambiguous)
 
 ## Step 5: Check Key Documentation
 
@@ -57,37 +57,41 @@ Before committing, inspect whether these documentation files exist and need upda
 
 For each file that needs updating:
 1. Read the current content
-2. Explain what should change and why
-3. **Ask the user for confirmation before making any edits**
-4. Apply the approved edits
-5. Stage the updated documentation files
+2. Propose the specific edits and present options to the user:
+   - `[1] Apply suggested edits`
+   - `[2] Skip documentation update`
+   - `[3] Edit manually (I'll describe what to change)`
+3. Apply the approved edits and stage the updated files
 
 If none of these files need changes, skip this step silently.
 
-## Step 6: Version Bump (Optional)
+## Step 6: Version Check
 
-Ask the user: "Do you want to bump the version number?"
+Automatically detect whether the project uses version management by checking for the presence of:
+- `package.json` → `version` field
+- `pyproject.toml` → `version` field
+- `Cargo.toml` → `version` field
+- `plugin.json` / `marketplace.json` → `version` field
+- Other common version files
 
-If yes:
-1. Detect the project's version management approach:
-   - `package.json` → `version` field
-   - `pyproject.toml` → `version` field
-   - `Cargo.toml` → `version` field
-   - `plugin.json` / `marketplace.json` → `version` field
-   - Other version files as appropriate
-2. Show the current version and suggest the next version based on the change type:
-   - Breaking changes → major bump
-   - New features → minor bump
-   - Bug fixes / patches → patch bump
-3. Let the user confirm or specify the desired version
-4. Update the version file(s) and stage them
-5. Include the version bump in the commit, or create a separate version bump commit if the user prefers
+**If no version file is found**, skip this step silently.
 
-If the user declines, skip this step.
+**If version files are found**, evaluate whether a version bump is warranted based on the nature of the staged changes:
+- Documentation-only, comments, or internal refactors with no behavior change → **skip** (no bump needed)
+- Bug fixes, new features, breaking changes, or public API modifications → **suggest a bump**
+
+When suggesting a bump:
+1. Show the current version and present options:
+   - `[1] Patch (x.y.Z)` — for bug fixes and minor improvements
+   - `[2] Minor (x.Y.0)` — for new features
+   - `[3] Major (X.0.0)` — for breaking changes
+   - `[4] Skip version bump`
+2. Update the version file(s) based on the user's choice and stage them
+3. Include the version bump in the same commit
 
 ## Step 7: Commit
 
-1. Create the commit with the confirmed message
+1. Create the commit with the generated (or confirmed) message
 2. Show the result with `git log --oneline -1` to confirm
 3. Do NOT push to remote unless the user explicitly asks
 
@@ -99,4 +103,4 @@ If the user declines, skip this step.
 - Never push automatically — only commit locally
 - Never skip pre-commit hooks (no `--no-verify`)
 - If a pre-commit hook fails, help fix the issue and create a NEW commit
-- Always get user confirmation on the commit message before committing
+- When interacting with the user, prefer numbered options over open-ended questions

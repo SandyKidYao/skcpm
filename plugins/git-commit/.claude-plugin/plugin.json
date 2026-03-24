@@ -1,7 +1,7 @@
 {
   "name": "git-commit",
   "description": "Smart git commit assistant: generates elegant commit messages, updates key docs, and manages version bumps",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "SK Team"
   }
