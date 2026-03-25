@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "A collection of claude code plugins used by SandyKid",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -24,6 +24,14 @@
       "version": "1.0.0",
       "category": "analysis",
       "tags": ["exploration", "code-reading", "context", "dependencies", "data-flow", "refactoring", "review"]
+    },
+    {
+      "name": "doc-sync",
+      "source": "./plugins/doc-sync",
+      "description": "检查文档与代码的一致性，根据代码更新过时文档",
+      "version": "0.1.0",
+      "category": "workflow",
+      "tags": ["documentation", "sync", "code-review", "maintenance"]
     }
   ]
 }

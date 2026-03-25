@@ -21,6 +21,8 @@ Add this marketplace to Claude Code:
 | **git-commit** | `/git-commit:commit` | Smart commit assistant: analyzes changes, generates style-matching commit messages, checks key docs, and optionally bumps version |
 | **code-explorer** | `/code-explorer:explore` | Breadth-first scan of a module or feature — files, entry points, dependencies, data flow, and test coverage |
 | **code-explorer** | `/code-explorer:trace` | Depth-first call-chain trace for a specific function, class, or symbol |
+| **doc-sync** | `/doc-sync:check` | Check documentation against code and output a diff report (read-only) |
+| **doc-sync** | `/doc-sync:sync` | Check documentation against code and update outdated docs automatically |
 
 ### Install a plugin
 
@@ -39,6 +41,12 @@ Add this marketplace to Claude Code:
 
 # Trace a specific symbol (depth-first)
 /code-explorer:trace AuthService.validateToken
+
+# Check docs against code (read-only report)
+/doc-sync:check
+
+# Update outdated docs based on code
+/doc-sync:sync README.md
 ```
 
 ## Adding a New Plugin
@@ -104,7 +112,9 @@ skcpm/
 │   └── marketplace.json      # Marketplace catalog
 ├── plugins/
 │   ├── git-commit/           # Smart git commit assistant
-│   └── code-explorer/        # Codebase exploration and symbol tracing
+│   ├── code-explorer/        # Codebase exploration and symbol tracing
+│   └── doc-sync/             # Documentation-code sync checker and updater
+├── CLAUDE.md
 ├── .gitignore
 └── README.md
 ```

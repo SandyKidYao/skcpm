@@ -1,0 +1,8 @@
+{
+  "name": "doc-sync",
+  "description": "检查文档与代码的一致性，根据代码更新过时文档",
+  "version": "0.1.0",
+  "author": {
+    "name": "SK Team"
+  }
+}
