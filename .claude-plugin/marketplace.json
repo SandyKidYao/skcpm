@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "A collection of claude code plugins used by SandyKid",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -32,6 +32,14 @@
       "version": "0.1.0",
       "category": "workflow",
       "tags": ["documentation", "sync", "code-review", "maintenance"]
+    },
+    {
+      "name": "test-craft",
+      "source": "./plugins/test-craft",
+      "description": "Requirement-driven test design and generation — analyzes module requirements, assesses testability, designs test plans, and generates unit tests and integration tests",
+      "version": "0.1.0",
+      "category": "testing",
+      "tags": ["testing", "unit-test", "integration-test", "test-plan", "testability", "tdd"]
     }
   ]
 }

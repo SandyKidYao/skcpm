@@ -23,6 +23,8 @@ Add this marketplace to Claude Code:
 | **code-explorer** | `/code-explorer:trace` | Depth-first call-chain trace for a specific function, class, or symbol |
 | **doc-sync** | `/doc-sync:check` | Check documentation against code and output a diff report (read-only) |
 | **doc-sync** | `/doc-sync:sync` | Check documentation against code and update outdated docs automatically |
+| **test-craft** | `/test-craft:test-design` | Requirement-driven test design and generation for a package or module (unit tests + integration tests) |
+| **test-craft** | `/test-craft:testability` | Assess a module's testability and provide improvement recommendations |
 
 ### Install a plugin
 
@@ -47,6 +49,12 @@ Add this marketplace to Claude Code:
 
 # Update outdated docs based on code
 /doc-sync:sync README.md
+
+# Design and generate tests for a module (requirement-driven)
+/test-craft:test-design pkg/order
+
+# Assess module testability
+/test-craft:testability pkg/auth
 ```
 
 ## Adding a New Plugin
@@ -113,7 +121,8 @@ skcpm/
 ├── plugins/
 │   ├── git-commit/           # Smart git commit assistant
 │   ├── code-explorer/        # Codebase exploration and symbol tracing
-│   └── doc-sync/             # Documentation-code sync checker and updater
+│   ├── doc-sync/             # Documentation-code sync checker and updater
+│   └── test-craft/           # Requirement-driven test design and generation
 ├── CLAUDE.md
 ├── .gitignore
 └── README.md

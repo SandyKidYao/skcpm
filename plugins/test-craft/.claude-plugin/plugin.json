@@ -1,0 +1,8 @@
+{
+  "name": "test-craft",
+  "version": "0.1.0",
+  "description": "Requirement-driven test design and generation plugin. Analyzes module requirements and design (not code), then crafts unit tests and integration tests.",
+  "author": {
+    "name": "yaoyupeng"
+  }
+}

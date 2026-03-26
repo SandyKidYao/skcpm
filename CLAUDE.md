@@ -23,6 +23,8 @@ claude plugin validate .
 plugins/<plugin-name>/
 ├── .claude-plugin/
 │   └── plugin.json        # name, description, version, author
+├── agents/                 # optional: autonomous subagent definitions
+│   └── <agent-name>.md
 └── skills/
     └── <skill-name>/
         └── SKILL.md        # frontmatter (description) + instructions
